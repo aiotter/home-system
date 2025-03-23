@@ -1,0 +1,95 @@
+{
+  "nodes": {
+    "aiotter-nixos": {
+      "inputs": {
+        "aiotter-system": "aiotter-system"
+      },
+      "locked": {
+        "lastModified": 1742713875,
+        "narHash": "sha256-7DKTl0EWK6t/g+UE+OXLuYsuQ0YIM+kw4K5qn0bC5Qc=",
+        "owner": "aiotter",
+        "repo": "systems",
+        "rev": "1d3f2c5c135a9d265924bfe2edb738cabac941dc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aiotter",
+        "ref": "nixos",
+        "repo": "systems",
+        "type": "github"
+      }
+    },
+    "aiotter-system": {
+      "locked": {
+        "lastModified": 1742713198,
+        "narHash": "sha256-JWhHv66NIjHVARJK82wqQ3CNoFlLMf3tKMMHtqk6lWM=",
+        "owner": "aiotter",
+        "repo": "systems",
+        "rev": "bd1467460fe3f87ed04618a6e7d7767571bd6ada",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aiotter",
+        "ref": "master",
+        "repo": "systems",
+        "type": "github"
+      }
+    },
+    "aiotter-systems": {
+      "locked": {
+        "lastModified": 1742713198,
+        "narHash": "sha256-JWhHv66NIjHVARJK82wqQ3CNoFlLMf3tKMMHtqk6lWM=",
+        "owner": "aiotter",
+        "repo": "systems",
+        "rev": "bd1467460fe3f87ed04618a6e7d7767571bd6ada",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aiotter",
+        "ref": "master",
+        "repo": "systems",
+        "type": "github"
+      }
+    },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1742631601,
+        "narHash": "sha256-yJ3OOAmsGAxSl0bTmKUp3+cEYtSS+V6hUPK2rYhIPr8=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "380ed15bcd6440606c6856db44a99140d422b46f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1742717545,
+        "narHash": "sha256-c+RY2wuwgw/yBaso2AUmSzik7OSO0X7h3EkySspU5gE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "146e102423a0edeab6c9baef6979f9627f4aaee8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "aiotter-nixos": "aiotter-nixos",
+        "aiotter-systems": "aiotter-systems",
+        "nixos-hardware": "nixos-hardware",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
