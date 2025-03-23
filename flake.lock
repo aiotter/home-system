@@ -1,15 +1,15 @@
 {
   "nodes": {
-    "aiotter-nixos": {
+    "aiotter-systems": {
       "inputs": {
-        "aiotter-system": "aiotter-system"
+        "aiotter-systems": "aiotter-systems_2"
       },
       "locked": {
-        "lastModified": 1742713875,
-        "narHash": "sha256-7DKTl0EWK6t/g+UE+OXLuYsuQ0YIM+kw4K5qn0bC5Qc=",
+        "lastModified": 1742729511,
+        "narHash": "sha256-BFUzTgK6ppE3EfreDGV1imT6SbvbZ/mH53uWbsmQ+L0=",
         "owner": "aiotter",
         "repo": "systems",
-        "rev": "1d3f2c5c135a9d265924bfe2edb738cabac941dc",
+        "rev": "cbd4cd0ffe73c1af1b3ad78d71564fe41a069ffe",
         "type": "github"
       },
       "original": {
@@ -19,23 +19,7 @@
         "type": "github"
       }
     },
-    "aiotter-system": {
-      "locked": {
-        "lastModified": 1742713198,
-        "narHash": "sha256-JWhHv66NIjHVARJK82wqQ3CNoFlLMf3tKMMHtqk6lWM=",
-        "owner": "aiotter",
-        "repo": "systems",
-        "rev": "bd1467460fe3f87ed04618a6e7d7767571bd6ada",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aiotter",
-        "ref": "master",
-        "repo": "systems",
-        "type": "github"
-      }
-    },
-    "aiotter-systems": {
+    "aiotter-systems_2": {
       "locked": {
         "lastModified": 1742713198,
         "narHash": "sha256-JWhHv66NIjHVARJK82wqQ3CNoFlLMf3tKMMHtqk6lWM=",
@@ -159,7 +143,6 @@
     },
     "root": {
       "inputs": {
-        "aiotter-nixos": "aiotter-nixos",
         "aiotter-systems": "aiotter-systems",
         "colmena": "colmena",
         "nixos-hardware": "nixos-hardware",
