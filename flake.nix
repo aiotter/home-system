@@ -9,11 +9,9 @@
 
   outputs = { self, nixpkgs, nixos-hardware, aiotter-systems, colmena }: {
     nixosModules.default = {
-      imports = [
+      imports = nixpkgs.lib.filesystem.listFilesRecursive ./modules ++ [
         aiotter-systems.nixosModules.raspi
         nixos-hardware.nixosModules.raspberry-pi-4
-        ./configuration.nix
-        ./hardware-configuration.nix
       ];
     };
 
