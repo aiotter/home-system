@@ -7,18 +7,17 @@
     colmena.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, aiotter-systems, colmena }: {
-    nixosModules.default = {
-      imports = nixpkgs.lib.filesystem.listFilesRecursive ./modules ++ [
-        aiotter-systems.nixosModules.raspi
-        nixos-hardware.nixosModules.raspberry-pi-4
-      ];
-    };
+  outputs = { self, nixpkgs, nixos-hardware, aiotter-systems, colmena, ... }@inputs: {
+    nixosModules.primer.imports = [
+      aiotter-systems.nixosModules.raspi
+      nixos-hardware.nixosModules.raspberry-pi-4
+      ./modules/primer.nix
+    ];
 
-    nixosConfigurations.home = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.primer = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = { inherit (aiotter-systems.lib) consts; };
-      modules = [ self.nixosModules.default ];
+      modules = [ self.nixosModules.primer ];
     };
 
     colmena = {
@@ -26,13 +25,17 @@
         nixpkgs = import nixpkgs { system = "aarch64-linux"; };
         specialArgs = { inherit (aiotter-systems.lib) consts; };
       };
-      home = {
-        inherit (self.nixosModules.default) imports;
+
+      home = { pkgs, lib, config, ... }: {
         deployment = {
           targetHost = "home.local";
           targetUser = "aiotter";
           buildOnTarget = true;
         };
+
+        imports = nixpkgs.lib.filesystem.listFilesRecursive ./modules ++ [
+          self.nixosModules.primer
+        ];
       };
     };
 
