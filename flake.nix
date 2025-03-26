@@ -5,9 +5,11 @@
     aiotter-systems.url = "github:aiotter/systems/nixos";
     colmena.url = "github:zhaofengli/colmena";
     colmena.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixpkgs-homebridge.url = "github:fmoda3/nixpkgs/add-homebridge";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, aiotter-systems, colmena, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-hardware, aiotter-systems, colmena, ... }@flakeInputs: {
     nixosModules.primer.imports = [
       aiotter-systems.nixosModules.raspi
       nixos-hardware.nixosModules.raspberry-pi-4
@@ -22,8 +24,8 @@
 
     colmena = {
       meta = {
+        specialArgs = { inherit (aiotter-systems.lib) consts; inherit flakeInputs; };
         nixpkgs = import nixpkgs { system = "aarch64-linux"; };
-        specialArgs = { inherit (aiotter-systems.lib) consts; };
       };
 
       home = { pkgs, lib, config, ... }: {

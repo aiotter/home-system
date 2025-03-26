@@ -141,12 +141,29 @@
         "type": "github"
       }
     },
+    "nixpkgs-homebridge": {
+      "locked": {
+        "lastModified": 1741626789,
+        "narHash": "sha256-Ou+yO8tj/dVQVk2h45Cz64i/tWZRaJf5tLmuvJR7JcQ=",
+        "owner": "fmoda3",
+        "repo": "nixpkgs",
+        "rev": "f84ec7e0afe3d6aca45585e00633108937a51ad8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fmoda3",
+        "ref": "add-homebridge",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "aiotter-systems": "aiotter-systems",
         "colmena": "colmena",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-homebridge": "nixpkgs-homebridge"
       }
     },
     "stable": {
