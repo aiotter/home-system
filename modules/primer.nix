@@ -31,8 +31,8 @@
 
   programs.zsh.enable = true;
 
-  # programs.ssh.hostKeyAlgorithms = ["ecdsa-sha2-nistp256"];
   services.openssh.settings = {
+    # LogLevel = "DEBUG3";
     PasswordAuthentication = false;
     KbdInteractiveAuthentication = false;
   };
