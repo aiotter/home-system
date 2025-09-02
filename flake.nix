@@ -43,13 +43,22 @@
 
     colmenaHive = colmena.lib.makeHive self.outputs.colmena;
 
-    # --experimental-flake-eval を常時有効にした colmena
-    defaultPackage =
+    packages =
       builtins.mapAttrs
         (system: colmenaPkgs:
-          nixpkgs.legacyPackages.${system}.writeShellScriptBin "colmena" ''
-            ${colmenaPkgs.colmena}/bin/colmena --experimental-flake-eval "$@"
-          ''
+          let
+            pkgs = nixpkgs.legacyPackages.${system};
+          in
+          {
+            inherit (colmenaPkgs) colmena;
+            default = colmenaPkgs.colmena;
+
+            # switch には --experimental-flake-eval が必要
+            # https://github.com/zhaofengli/colmena/issues/259
+            switch = pkgs.writeShellScriptBin "colmena-switch" ''
+              ${colmenaPkgs.colmena}/bin/colmena --experimental-flake-eval apply switch
+            '';
+          }
         )
         colmena.outputs.packages;
   };

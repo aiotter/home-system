@@ -28,5 +28,5 @@ nixos-rebuild switch --flake github:aiotter/home-system#primer
 `home.local` ドメインを参照するので LAN の中から実行すること。
 
 ```bash
-nix run github:aiotter/home-system -- apply --reboot
+nix run github:aiotter/home-system#switch
 ```
