@@ -62,4 +62,8 @@
         )
         colmena.outputs.packages;
   };
+
+  nixConfig = {
+    extra-experimental-features = [ "pipe-operators" ];
+  };
 }
