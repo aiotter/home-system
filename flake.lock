@@ -5,11 +5,11 @@
         "aiotter-systems": "aiotter-systems_2"
       },
       "locked": {
-        "lastModified": 1742729511,
-        "narHash": "sha256-BFUzTgK6ppE3EfreDGV1imT6SbvbZ/mH53uWbsmQ+L0=",
+        "lastModified": 1756954298,
+        "narHash": "sha256-GQzq+TayD9jJcacoJj1KfW3XFSv8ye5nwlFbcPtOXjA=",
         "owner": "aiotter",
         "repo": "systems",
-        "rev": "cbd4cd0ffe73c1af1b3ad78d71564fe41a069ffe",
+        "rev": "2697ec0fe2c65e75f6256f4ef9db67a62692e929",
         "type": "github"
       },
       "original": {
@@ -46,11 +46,11 @@
         "stable": "stable"
       },
       "locked": {
-        "lastModified": 1739900653,
-        "narHash": "sha256-hPSLvw6AZQYrZyGI6Uq4XgST7benF/0zcCpugn/P0yM=",
+        "lastModified": 1755272288,
+        "narHash": "sha256-ypTPb2eKcOBbOoyvPV0j4ZOXs4kayo73/2KI456QnE0=",
         "owner": "zhaofengli",
         "repo": "colmena",
-        "rev": "2370d4336eda2a9ef29fce10fa7076ae011983ab",
+        "rev": "5bf4ce6a24adba74a5184f4a9bef01d545a09473",
         "type": "github"
       },
       "original": {
@@ -113,11 +113,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1742631601,
-        "narHash": "sha256-yJ3OOAmsGAxSl0bTmKUp3+cEYtSS+V6hUPK2rYhIPr8=",
+        "lastModified": 1756750488,
+        "narHash": "sha256-e4ZAu2sjOtGpvbdS5zo+Va5FUUkAnizl4wb0/JlIL2I=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "380ed15bcd6440606c6856db44a99140d422b46f",
+        "rev": "47eb4856cfd01eaeaa7bb5944a0f27db8fb9b94a",
         "type": "github"
       },
       "original": {
@@ -128,31 +128,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1742723376,
-        "narHash": "sha256-uMmBtH9RdghXcoZ+v+z5ZMbAG/nypFnVhjCtqF8pMQo=",
+        "lastModified": 1756885356,
+        "narHash": "sha256-pSYM+/eTmwPcORPinI249ESoo3k7grLYLjCiDd5OMyc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "cc832eaa2fe6afc5d7ef20d2a9aabf4cc111eec6",
+        "rev": "9b579d9385b9fcf949d48df6b0bf772a3525d074",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-homebridge": {
-      "locked": {
-        "lastModified": 1741626789,
-        "narHash": "sha256-Ou+yO8tj/dVQVk2h45Cz64i/tWZRaJf5tLmuvJR7JcQ=",
-        "owner": "fmoda3",
-        "repo": "nixpkgs",
-        "rev": "f84ec7e0afe3d6aca45585e00633108937a51ad8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "fmoda3",
-        "ref": "add-homebridge",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -162,22 +146,21 @@
         "aiotter-systems": "aiotter-systems",
         "colmena": "colmena",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-homebridge": "nixpkgs-homebridge"
+        "nixpkgs": "nixpkgs"
       }
     },
     "stable": {
       "locked": {
-        "lastModified": 1730883749,
-        "narHash": "sha256-mwrFF0vElHJP8X3pFCByJR365Q2463ATp2qGIrDUdlE=",
+        "lastModified": 1750133334,
+        "narHash": "sha256-urV51uWH7fVnhIvsZIELIYalMYsyr2FCalvlRTzqWRw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "dba414932936fde69f0606b4f1d87c5bc0003ede",
+        "rev": "36ab78dab7da2e4e27911007033713bab534187b",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-24.05",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }

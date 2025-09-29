@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   services = {
     mosquitto.enable = true;
@@ -11,11 +13,11 @@
         serial.port = "/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4:1.0-port0";
         frontend = {
           enabled = true;
-          port = 8080;
+          port = 8088;
         };
       };
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 8080 ];
+  networking.firewall.allowedTCPPorts = [ config.services.zigbee2mqtt.settings.frontend.port ];
 }

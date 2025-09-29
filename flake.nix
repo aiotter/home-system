@@ -5,8 +5,6 @@
     aiotter-systems.url = "github:aiotter/systems/nixos";
     colmena.url = "github:zhaofengli/colmena";
     colmena.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixpkgs-homebridge.url = "github:fmoda3/nixpkgs/add-homebridge";
   };
 
   outputs = { self, nixpkgs, nixos-hardware, aiotter-systems, colmena, ... }@flakeInputs: {
@@ -35,9 +33,9 @@
           buildOnTarget = true;
         };
 
-        imports = nixpkgs.lib.filesystem.listFilesRecursive ./modules ++ [
+        imports = [
           self.nixosModules.primer
-        ];
+        ] ++ (./modules |> lib.fileset.fileFilter (file: file.hasExt "nix") |> lib.fileset.toList);
       };
     };
 
@@ -53,10 +51,8 @@
             inherit (colmenaPkgs) colmena;
             default = colmenaPkgs.colmena;
 
-            # switch には --experimental-flake-eval が必要
-            # https://github.com/zhaofengli/colmena/issues/259
             switch = pkgs.writeShellScriptBin "colmena-switch" ''
-              ${colmenaPkgs.colmena}/bin/colmena --experimental-flake-eval apply switch
+              ${pkgs.lib.getExe colmenaPkgs.colmena} apply switch
             '';
           }
         )

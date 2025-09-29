@@ -11,12 +11,12 @@ let
     # };
 
     homebridge = {
-      enable = config.containers.homebridge.config.systemd.services.homebridge-config-ui-x.enable or false;
+      enable = config.containers.homebridge.config.systemd.services.homebridge.enable or false;
       title = "Homebridge";
       nginx = {
         # proxyPass ではダメ
         # https://github.com/homebridge/homebridge-config-ui-x/issues/628
-        return = "301 $scheme://$host:${toString config.containers.homebridge.config.services.homebridge.ui.port}$request_uri";
+        return = "301 $scheme://$host:${toString config.containers.homebridge.config.services.homebridge.uiSettings.port}$request_uri";
       };
     };
 
