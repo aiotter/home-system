@@ -11,11 +11,6 @@ let
 in
 
 {
-  deployment.keys = {
-    cloudflared-token.keyCommand = [ "printenv" "TUNNEL_TOKEN" ];
-    # "cloudflared-credential.json".keyCommand = [ "printenv" "TUNNEL_CREDENTIAL" ];
-  };
-
   systemd.services.cloudflared-tunnel-home =
     let
       tokenFile = with config.deployment.keys.cloudflared-token; "${destDir}/${name}";
