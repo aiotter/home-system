@@ -10,6 +10,14 @@ let
     #   };
     # };
 
+    home-assistant = {
+      enable = config.services.home-assistant.enable or false;
+      title = "Home Assistant";
+      nginx = {
+        return = "301 $scheme://$host:${toString config.services.home-assistant.config.http.server_port}/";
+      };
+    };
+
     homebridge = {
       enable = config.containers.homebridge.config.systemd.services.homebridge.enable or false;
       title = "Homebridge";
