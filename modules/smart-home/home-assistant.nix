@@ -1,4 +1,13 @@
-{ ... }:
+{ pkgs, config, ... }:
+
+let
+  components =
+    with pkgs.home-assistant-custom-components;
+    with pkgs.callPackage ./home-assistant-components { };
+    [
+      setup_assistant
+    ];
+in
 
 {
   services.home-assistant = {
@@ -10,8 +19,14 @@
       "mqtt"
     ];
 
+    customComponents = components;
+
     config = {
       default_config = { };
+
+      setup_assistant.required_integrations = map (builtins.getAttr "domain") components ++ [
+        "mqtt"
+      ];
 
       homeassistant = {
         name = "おうち";

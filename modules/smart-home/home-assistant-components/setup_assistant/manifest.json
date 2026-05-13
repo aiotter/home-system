@@ -1,0 +1,10 @@
+{
+  "domain": "setup_assistant",
+  "name": "Setup Assistant",
+  "dependencies": [
+    "repairs"
+  ],
+  "documentation": "https://github.com/aiotter/home-system",
+  "integration_type": "helper",
+  "version": "0.1.0"
+}
