@@ -36,7 +36,8 @@
         imports = [
           self.nixosModules.primer
           ./secrets.nix
-        ] ++ (./modules |> lib.fileset.fileFilter (file: file.hasExt "nix") |> lib.fileset.toList);
+          ./modules
+        ];
       };
     };
 
