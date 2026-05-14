@@ -6,6 +6,8 @@ let
     with pkgs.callPackage ./home-assistant-components { };
     [
       setup_assistant
+      ecoflow_cloud
+      # ef_ble
     ];
 in
 

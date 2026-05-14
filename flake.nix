@@ -23,7 +23,13 @@
     colmena = {
       meta = {
         specialArgs = { inherit (aiotter-systems.lib) consts; inherit flakeInputs; };
-        nixpkgs = import nixpkgs { system = "aarch64-linux"; };
+        nixpkgs = import nixpkgs {
+          system = "aarch64-linux";
+          overlays = [ (import ./overlays.nix) ];
+          config.permittedInsecurePackages = [
+            "python3.14-ecdsa-0.19.2"  # ha-ef-ble で必要
+          ];
+        };
       };
 
       home = { pkgs, lib, config, ... }: {
