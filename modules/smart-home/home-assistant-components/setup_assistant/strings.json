@@ -2,12 +2,7 @@
   "issues": {
     "missing_required_integration": {
       "title": "Set up {name}",
-      "description": "**{name}** still needs setup. Open the link below to start adding this integration.",
-      "fix_flow": {
-        "abort": {
-          "integration_not_configured": "**{name}** is not set up yet.\n\n**[Start setup](/config/integrations/dashboard/add?domain={domain})**\n\nAfter setup, open this repair again to recheck."
-        }
-      }
+      "description": "**{name}** still needs setup. Open the link below to start adding this integration."
     }
   }
 }

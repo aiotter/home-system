@@ -85,6 +85,15 @@ def _refresh_issues(
 ) -> None:
     configured_domains = {entry.domain for entry in hass.config_entries.async_entries()}
     configured_domains.add(DOMAIN)
+    required_issue_ids = {integration.issue_id for integration in required_integrations}
+
+    for issue in list(ir.async_get(hass).issues.values()):
+        if (
+            issue.domain == DOMAIN
+            and issue.issue_id.startswith("missing_")
+            and issue.issue_id not in required_issue_ids
+        ):
+            ir.async_delete_issue(hass, DOMAIN, issue.issue_id)
 
     for integration in required_integrations:
         if integration.domain in configured_domains:
@@ -96,7 +105,7 @@ def _refresh_issues(
             DOMAIN,
             integration.issue_id,
             data={"domain": integration.domain},
-            is_fixable=True,
+            is_fixable=False,
             is_persistent=True,
             issue_domain=integration.domain,
             learn_more_url=integration.setup_url,
