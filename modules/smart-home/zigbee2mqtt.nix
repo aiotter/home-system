@@ -2,8 +2,6 @@
 
 {
   services = {
-    mosquitto.enable = true;
-
     zigbee2mqtt = {
       enable = true;
       settings = {
