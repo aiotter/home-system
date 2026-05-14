@@ -18,6 +18,8 @@ in
     extraComponents = [
       "default_config"
       "met" # weather forecast
+
+      "homekit"
       "mqtt"
     ];
 
@@ -27,6 +29,7 @@ in
       default_config = { };
 
       setup_assistant.required_integrations = map (builtins.getAttr "domain") components ++ [
+        "homekit"
         "mqtt"
       ];
 
@@ -50,4 +53,8 @@ in
       };
     };
   };
+
+  networking.firewall.allowedTCPPorts = [
+    21064 # Homekit Bridge
+  ];
 }
