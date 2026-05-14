@@ -1,10 +1,11 @@
-{ buildHomeAssistantComponent }:
+{
+  home-assistant,
+}:
+
+let
+  inherit (home-assistant.python.pkgs) callPackage;
+in
 
 {
-  setup_assistant = buildHomeAssistantComponent {
-    owner = "aiotter";
-    domain = "setup_assistant";
-    version = "0.1.0";
-    src = ./setup_assistant;
-  };
+  setup_assistant = callPackage ./setup_assistant { };
 }
