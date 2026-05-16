@@ -5,6 +5,8 @@ let
 in
 
 {
+  glances = prev.glances.overridePythonAttrs { doCheck = false; };
+
   home-assistant-custom-components =
     let
       components = prev.home-assistant-custom-components;
