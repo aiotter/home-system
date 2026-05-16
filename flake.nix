@@ -61,7 +61,7 @@
 
             switch = pkgs.writeShellScriptBin "colmena-switch" ''
               export PATH=${pkgs.lib.makeBinPath [ pkgs.nix ]}:$PATH
-              ${pkgs.lib.getExe colmenaPkgs.colmena} apply switch
+              ${pkgs.lib.getExe colmenaPkgs.colmena} apply "$@" switch
             '';
           }
         )
