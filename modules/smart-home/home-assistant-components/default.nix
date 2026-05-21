@@ -1,12 +1,14 @@
 {
+  callPackage,
   home-assistant,
 }:
 
 let
-  inherit (home-assistant.python.pkgs) callPackage;
+  pythonCallPackage = home-assistant.python.pkgs.callPackage;
 in
 
 {
-  setup_assistant = callPackage ./setup_assistant { };
-  ef_ble = callPackage ./ef_ble.nix { };
+  setup_assistant = pythonCallPackage ./setup_assistant { };
+  ef_ble = pythonCallPackage ./ef_ble.nix { };
+  utils = callPackage ./utils.nix { };
 }

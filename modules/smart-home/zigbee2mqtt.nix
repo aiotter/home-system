@@ -5,7 +5,7 @@
     zigbee2mqtt = {
       enable = true;
       settings = {
-        homeassistant.enabled = config.services.home-assistant.enable;
+        homeassistant.enabled = true;
         # permit_join = true;
         mqtt.base_topic = "zigbee2mqtt";
         serial.port = ""; # auto-discovery

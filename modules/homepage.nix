@@ -137,7 +137,7 @@
         };
 
         "/services/home-assistant/" = {
-          return = "301 $scheme://$host:${toString config.services.home-assistant.config.http.server_port}/";
+          return = "301 $scheme://$host:8123/";
         };
 
         "/services/zigbee2mqtt/" = {
