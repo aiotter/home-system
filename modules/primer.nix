@@ -16,16 +16,13 @@
   };
   security.sudo.extraConfig = "aiotter ALL=(ALL) NOPASSWD: ALL";
 
-  # Enable MDNS
+  # Publish home.local for LAN clients.
   services.avahi = {
     enable = true;
     nssmdns4 = true;
     publish = {
       enable = true;
       addresses = true;
-      hinfo = true;
-      workstation = true;
-      # domain = true;
     };
   };
 
