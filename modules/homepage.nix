@@ -1,5 +1,8 @@
 { config, ... }:
 
+let
+  sharedFolder = config.services.shared-tmp-folder;
+in
 {
   services.homepage-dashboard = {
     enable = true;
@@ -94,6 +97,28 @@
           }
         ];
       }
+      {
+        Files = [
+          {
+            "${sharedFolder.serverName}" = {
+              description = sharedFolder.shareName;
+              href = "${sharedFolder.filebrowser.baseUrl}/";
+              icon = "filebrowser";
+              widget = {
+                type = "filebrowser";
+                url = "http://127.0.0.1:${toString sharedFolder.filebrowser.port}${sharedFolder.filebrowser.baseUrl}";
+              };
+            };
+          }
+          {
+            WebDAV = {
+              description = sharedFolder.shareName;
+              href = "${sharedFolder.webdav.endpointPath}/";
+              icon = "mdi-folder-network-outline";
+            };
+          }
+        ];
+      }
     ];
 
     customCSS = ''
@@ -147,6 +172,33 @@
 
         "/services/glances/" = {
           proxyPass = "http://127.0.0.1:${toString config.services.glances.port}/";
+        };
+
+        "= ${sharedFolder.webdav.endpointPath}" = {
+          return = "301 $scheme://$host${sharedFolder.webdav.endpointPath}/";
+        };
+
+        "${sharedFolder.webdav.endpointPath}/" = {
+          proxyPass = "http://127.0.0.1:${toString sharedFolder.webdav.port}${sharedFolder.webdav.endpointPath}/";
+          extraConfig = ''
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $host;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            client_max_body_size 1024m;
+            proxy_request_buffering off;
+          '';
+        };
+
+        "${sharedFolder.filebrowser.baseUrl}/" = {
+          proxyPass = "http://127.0.0.1:${toString sharedFolder.filebrowser.port}${sharedFolder.filebrowser.baseUrl}/";
+          extraConfig = ''
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $host;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            client_max_body_size 1024m;
+            proxy_request_buffering off;
+          '';
         };
       };
     };
