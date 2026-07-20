@@ -26,6 +26,12 @@
     };
   };
 
+  # Avoid an early openresolv SIGHUP by waiting for initial network setup.
+  systemd.services.avahi-daemon = {
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" ];
+  };
+
   programs.zsh.enable = true;
 
   services.openssh.settings = {
