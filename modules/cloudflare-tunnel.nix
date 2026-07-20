@@ -15,17 +15,15 @@ in
     let
       tokenFile = with config.deployment.keys.cloudflared-token; "${destDir}/${name}";
       tokenService = "${config.deployment.keys.cloudflared-token.name}-key.service";
-      serviceCommand = pkgs.writeShellScript
-        "cloudflared-tunnel-run-home"
-        "TUNNEL_TOKEN=$(cat ${tokenFile}) ${lib.getExe pkgs.cloudflared} tunnel --no-autoupdate --protocol=http2 run";
     in
     {
       after = [ "network.target" "network-online.target" tokenService ];
-      wants = [ "network.target" "network-online.target" tokenService ];
+      wants = [ "network.target" "network-online.target" ];
+      requires = [ tokenService ];
       wantedBy = [ "multi-user.target" ];
-      # unitConfig.ConditionPathExists = tokenFile;
+      unitConfig.AssertFileNotEmpty = tokenFile;
       serviceConfig = {
-        ExecStart = serviceCommand;
+        ExecStart = "${lib.getExe pkgs.cloudflared} tunnel --no-autoupdate --protocol=http2 run --token-file ${tokenFile}";
         Restart = "on-failure";
       };
       # environment.TUNNEL_LOGLEVEL = "debug";

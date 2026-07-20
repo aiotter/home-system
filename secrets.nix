@@ -1,7 +1,7 @@
 {
   deployment.keys = {
     cloudflared-token = {
-      keyCommand = [ "printenv" "TUNNEL_TOKEN" ];
+      keyCommand = [ "sh" "-c" "printf %s \"\${TUNNEL_TOKEN:?undefined}\"" ];
       destDir = "/var/keys"; # permanent
       permissions = "0600";
     };
